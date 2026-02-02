@@ -884,3 +884,31 @@ body.no-scroll {
     0% { transform: scale(0.8); opacity: 0.5; }
     100% { transform: scale(1.5); opacity: 0; }
 }
+
+
+
+/* Thrust Areas List */
+.thrust-list {
+  list-style-type: disc;        /* FORCE bullets */
+  padding-left: 1.5rem;         /* Space for bullets */
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.thrust-list li {
+  margin-bottom: 8px;           /* Space between items */
+}
+
+/* Responsive font size */
+@media (min-width: 992px) {
+  .thrust-list {
+    font-size: 20px;
+  }
+}
+
+
+/* Space between navbar and page content */
+.page-content {
+  margin-top: 60px;   /* Adjust as needed */
+  padding: 20px;
+}
