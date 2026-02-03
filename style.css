@@ -886,6 +886,305 @@ body.no-scroll {
 }
 
 
+/* ================= COMMON ================= */
+
+.speaker-simples-list {
+    padding: 80px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px 100px;
+}
+
+/* Make the section titles full width */
+.speaker-simples-list h1 {
+    grid-column: 1 / -1;
+}
+
+.speaker-simples-list > h1:first-of-type {
+    margin-bottom: 60px;
+    font-size: 3rem;
+}
+
+/* ================= KEYNOTE CARD STYLE (Think Tank feel) ================= */
+
+.speaker-item {
+    position: relative;
+    background: #fff;
+
+    /* Think Tank styling */
+    border: 1px solid #e3e6f0;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    transition: 0.3s ease;
+
+    display: flex;
+    gap: 30px;
+    padding: 25px 30px;
+}
+
+.speaker-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+}
+
+/* Remove old blue offset */
+.speaker-item::after {
+    display: none;
+}
+
+/* Image */
+.speaker-item img {
+    width: 180px;
+    height: 220px;
+    object-fit: cover;
+
+    border-radius: 6px;
+    border: 3px solid #1a237e;   /* same as team-card */
+}
+
+/* Text */
+.speaker-details h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1a237e;
+}
+
+.speaker-details p {
+    font-size: 15px;
+    margin: 3px 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* ================= PREVIOUS SPEAKERS STYLE ================= */
+
+.speaker-simples-list h1:nth-of-type(2) ~ .speaker-item {
+    border-radius: 90px;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.speaker-simples-list h1:nth-of-type(2) ~ .speaker-item img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+    .speaker-simples-list {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .speaker-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .speaker-item img {
+        width: 200px;
+        height: 240px;
+    }
+
+    .speaker-simples-list h1:nth-of-type(2) ~ .speaker-item {
+        border-radius: 25px;
+    }
+}
+
+/* Organising team */
+
+/* Heading tighter */
+.advisory-heading {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 30px 0 12px;   /* was 30px bottom → now tight */
+}
+
+/* Remove extra space before Think Tank section */
+.advisory-clean .advisory-heading + section.section {
+    padding-top: 0 !important;   /* kills the 80px section gap */
+}
+
+/* Advisory list styling (same as yours) */
+.advisory-list {
+    border-top: 1px solid #e0e6f0;
+}
+
+.advisory-item {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    padding: 18px 10px;
+    border-bottom: 1px solid #e0e6f0;
+    align-items: center;
+}
+
+.advisory-item .name {
+    font-weight: 600;
+    color: #0d1b4c;
+}
+
+.advisory-item .desc {
+    color: #333;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .advisory-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+}
+
+/* Think Tank */
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* gives control to make cards wider */
+    gap: 40px;
+}
+
+/* First row — 3 wide cards */
+.team-card:nth-child(1),
+.team-card:nth-child(2),
+.team-card:nth-child(3) {
+    grid-column: span 2;   /* each takes 2 columns */
+}
+
+/* Second row — 2 wide cards centered */
+.team-card:nth-child(4) {
+    grid-column: 2 / span 2;
+}
+
+.team-card:nth-child(5) {
+    grid-column: 4 / span 2;
+}
+
+/* === Your existing card styling (unchanged) === */
+.team-card {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #e3e6f0;
+    border-radius: 10px;
+    background: #fff;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+.team-img img {
+    width: 180px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 3px solid #1a237e;
+}
+
+.team-info h3 {
+    margin-bottom: 6px;
+    color: #1a237e;
+}
+
+.team-info .role {
+    font-weight: 700;
+    color: #ff6f00;
+    margin-bottom: 6px;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-card {
+        grid-column: auto !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .team-img img {
+        width: 160px;
+        height: 200px;
+    }
+}
+
+/* Writings */
+
+.team-section {
+    margin: 80px auto;
+}
+
+.team-heading {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 40px 0 20px;
+    color: #0b1a2f;
+    letter-spacing: 1px;
+}
+
+.team-table {
+    border: 1px solid #d9dfe8;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.team-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 25px;
+    border-bottom: 1px solid #eef1f6;
+}
+
+.team-row:last-child {
+    border-bottom: none;
+}
+
+.team-name {
+    font-weight: 700;
+    font-size: 18px;
+    color: #0b1a2f;
+    width: 35%;
+}
+
+.team-role {
+    font-size: 17px;
+    color: #1a1a1a;
+    width: 60%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .team-row {
+        flex-direction: column;
+        gap: 6px;
+    }
+    .team-name,
+    .team-role {
+        width: 100%;
+    }
+
+
 
 /* Thrust Areas List */
 .thrust-list {
@@ -911,4 +1210,5 @@ body.no-scroll {
 .page-content {
   margin-top: 60px;   /* Adjust as needed */
   padding: 20px;
+
 }
